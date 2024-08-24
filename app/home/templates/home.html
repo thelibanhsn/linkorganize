@@ -1,0 +1,17 @@
+{% import "bootstrap/wtf.html" as wtf %}
+{% extends 'base.html' %}
+
+{% block title %}Home Page - Link Organize{% endblock %}
+
+
+{% block content %}
+<div>
+    <h1>Make all your social links in <strong>One Link</strong></h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate officia dolore mollitia quis adipisci cum facere, culpa quae harum accusantium, ipsa ut placeat dolorem expedita voluptas eveniet laboriosam vero error!</p>
+    <a class="btn btn-success" href="{{url_for('auth_bp.login')}}">Login</a>
+    <a class="btn btn-primary" href="{{url_for('auth_bp.register')}}">Register</a>
+</div>
+
+{% endblock content %}
+
+

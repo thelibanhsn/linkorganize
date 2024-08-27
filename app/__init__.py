@@ -1,7 +1,8 @@
 from flask import Flask
 from .auth.routes import auth_bp
-from .auth.models import User
 from .home.routes import home_bp
+from .dashboard.routes import dashboard_bp
+from .auth.models import User
 from .extensions import login_manager, db, migrate, bootstrap
 
 def create_app():
@@ -22,6 +23,7 @@ def create_app():
     # Register blueprints
     app.register_blueprint(auth_bp)
     app.register_blueprint(home_bp)
+    app.register_blueprint(dashboard_bp)
    
 
     return app

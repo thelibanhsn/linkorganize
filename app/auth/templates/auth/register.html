@@ -1,24 +1,72 @@
 {% import "bootstrap/wtf.html" as wtf %}
-{% extends 'base.html' %}
 
-{% block title %}User Register - Link Organize{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Head -->
+  {% include 'head.html' %}
+  <!-- End Head -->
+
+  <body class="">
+    {% include 'navbar.html' %}
+
+    <div class="container my-4 ">
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <div class="alert alert-danger" role="alert">
+              {{ messages[0] }}
+            </div>
+          {% endif %}
+        {% endwith %}
+        <div class="card p-4 ">
+          <h1 class="card-header">Create your account for free</h1>
+          <form action="{{url_for('auth_bp.register')}}" class="form card-body"  method="post" role="form">
+              {{ form.hidden_tag() }}
+            {{ wtf.form_errors(form, hiddens="only") }}
+          
+            {{ wtf.form_field(form.first_name) }}
+            {{ wtf.form_field(form.last_name) }}
+            {{ wtf.form_field(form.username) }}
+            {{ wtf.form_field(form.email) }}
+            {{ wtf.form_field(form.password) }}
+            {{ wtf.form_field(form.submit, class='btn btn-primary btn-lg btn-block') }}
+          </form>
+          <p>Have an account?, just <a href="{{url_for('auth_bp.login')}}">sign here</a> </p>
+          
+    </div>
+
+   
+
+    <!-- Bootstrap JS (optional) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- jQuery -->
+<script src="{{ url_for('static', filename='assets/js/jquery-3.5.1.min.js')}}"></script>
+
+<!-- Bootstrap Core JS -->
+<script src="{{ url_for('static', filename='assets/js/popper.min.js')}}"></script>
+<script src="{{ url_for('static', filename='assets/js/bootstrap.min.js')}}"></script>
+
+<!-- Slimscroll JS -->
+<script src="{{ url_for('static', filename='assets/js/jquery.slimscroll.min.js')}}"></script>
+
+<!-- Slimscroll JS -->
+<script src="{{ url_for('static', filename='assets/js/select2.min.js')}}"></script>
+
+<!-- Datetimepicker JS -->
+<script src="{{ url_for('static', filename='assets/js/moment.min.js')}}"></script>
+<script src="{{ url_for('static', filename='assets/js/bootstrap-datetimepicker.min.js')}}"></script>
+
+<script src="https://kit.fontawesome.com/a6d3c1c916.js" crossorigin="anonymous"></script>
+
+<!-- Custom JS -->
+<script src="{{ url_for('static', filename='assets/js/app.js')}}"></script>
 
 
-{% block content %}
-<h1 >Create your account for free</h1>
-<form action="{{url_for('auth_bp.register')}}" class="form "  method="post" role="form">
-    {{ form.hidden_tag() }}
-  {{ wtf.form_errors(form, hiddens="only") }}
+    {% block scripts %}{% endblock %}
+</body>
+</html>
 
-  {{ wtf.form_field(form.first_name) }}
-  {{ wtf.form_field(form.last_name) }}
-  {{ wtf.form_field(form.username) }}
-  {{ wtf.form_field(form.email) }}
-  {{ wtf.form_field(form.password) }}
-  {{ wtf.form_field(form.submit, class='btn btn-primary btn-lg btn-block') }}
-</form>
-<p>Have an account?, just <a href="{{url_for('auth_bp.login')}}">sign here</a> </p>
-
-{% endblock content %}
 
 

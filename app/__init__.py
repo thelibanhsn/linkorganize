@@ -2,6 +2,7 @@ from flask import Flask
 from .auth.routes import auth_bp
 from .home.routes import home_bp
 from .dashboard.routes import dashboard_bp
+from .profile.routes import profile_bp
 from .auth.models import User
 from .extensions import login_manager, db, migrate, bootstrap
 
@@ -24,6 +25,7 @@ def create_app():
     app.register_blueprint(auth_bp)
     app.register_blueprint(home_bp)
     app.register_blueprint(dashboard_bp)
+    app.register_blueprint(profile_bp)
    
 
     return app

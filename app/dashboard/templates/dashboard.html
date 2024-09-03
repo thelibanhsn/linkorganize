@@ -1,12 +1,123 @@
 {% import "bootstrap/wtf.html" as wtf %}
-{% extends 'base.html' %}
 
-{% block title %}Dashboard - Link Organize{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+{% include 'head.html' %}
+<body class="">
+    {% include 'navbar.html' %}
+
+    <div class="container my-4 ">
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <div class="alert alert-danger" role="alert">
+              {{ messages[0] }}
+            </div>
+          {% endif %}
+        {% endwith %}
+        
+        <div class="row ">
+
+            
+             <div class="col col-md-8 col-sm-12">
+                <div class="card text-center ">
+    
+                    <div class="card-body">
+                      <h5 class="card-title">Simplify Your Social Links</h5>
+                      <p class="card-text">Streamline all your social profiles into a single, easy-to-manage hub with Link Organize.</p>
+                      <a href="{{url_for('dashboard_bp.add_social')}}" class="btn btn-lg btn-primary w-75">ADD LINK</a>
+                    </div>
+                    
+                  </div>
+                <br>
+                <div class="card">
+                   <div class="card-header">Current Links</div> 
+                   <ul class="list-group ">
+                    {% for link in social_links %}
+                            <li class="list-group-item w-full d-flex justify-content-between align-items-center">
+                               
+                
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1">
+                                        {% if link.social_name == 'instagram' %}
+                                    <i class="fa-brands fa-instagram text-danger"></i>
+                                    {% endif %}
+                                        {% if link.social_name == 'facebook' %}
+                                        <i class="fa-brands fa-facebook text-primary"></i>
+                                    {% endif %}
+                                    {% if link.social_name == 'x' %}
+                                        <i class="fa-brands fa-x-twitter"></i>
+                                    {% endif %}
+                                    {% if link.social_name == 'youtube' %}
+                                        <i class="fa-brands fa-youtube text-danger"></i>
+                                    {% endif %}
+                                    {% if link.social_name == 'tiktok' %}
+                                        <i class="fa-brands fa-solid fa-tiktok"></i>
+                                    {% endif %}
+                                    </span>
+                                    <input type="text" class="form-control w-auto" value="{{link.social_username}}" readonly aria-label="Username" aria-describedby="basic-addon1">
+                                  </div>
+                                <div class="mb-3 ml-2 d-flex align-items-center ">
+                    
+                                    <a href="{{url_for('dashboard_bp.update_social_link', social_link_id = link.id)}}"><i class="fa fa-pencil-square-o p-2" aria-hidden="true"></i>                    </a>
+                                    <a href="{{url_for('dashboard_bp.delete_social_link', social_link_id = link.id)}}"><i class="fa fa-trash-o text-danger p-2" aria-hidden="true"></i>                    </a>
+                                </div>
+                            </li>
+                            {% endfor %}
+                    </ul>
+                </div>
+        </div>
+        <div class="col col-md-4 col-sm-12">
+            <div class="card bg-light p-4">
+        
+                <p>Your Link is ready</p>
+                <div class="input-group mb-3 ">
+                    <input type="text" class="form-control text-sm" value="https://example.com/{{current_user.username}}" aria-label="username" aria-describedby="button-addon2" readonly>
+                    <button class="btn btn-outline-success" type="button" id="button-addon2">Copy</button>
+                </div>
+                <p>Share with friends</p>
+            </div>
+        <div class="card bg-gray p-4">
+            <div class="card-header">QR Code</div>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores veritatis, quis dolorem est consequatur dignissimos tempora natus explicabo molestiae nostrum quod magnam doloremque id vel mollitia, vero voluptatem eveniet. Repudiandae!</p>
+        </div>
+    </div>
+    </div>
+    </div>
+
+    <!-- <footer class="footer mt-auto py-3 bg-light">
+        <div class="container">
+            <span class="text-muted">Link Oraganize © 2024</span>
+        </div>
+    </footer> -->
+
+    <!-- Bootstrap JS (optional) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- jQuery -->
+<script src="{{ url_for('static', filename='assets/js/jquery-3.5.1.min.js')}}"></script>
+
+<!-- Bootstrap Core JS -->
+<script src="{{ url_for('static', filename='assets/js/popper.min.js')}}"></script>
+<script src="{{ url_for('static', filename='assets/js/bootstrap.min.js')}}"></script>
+
+<!-- Slimscroll JS -->
+<script src="{{ url_for('static', filename='assets/js/jquery.slimscroll.min.js')}}"></script>
+
+<!-- Slimscroll JS -->
+<script src="{{ url_for('static', filename='assets/js/select2.min.js')}}"></script>
+
+<!-- Datetimepicker JS -->
+<script src="{{ url_for('static', filename='assets/js/moment.min.js')}}"></script>
+<script src="{{ url_for('static', filename='assets/js/bootstrap-datetimepicker.min.js')}}"></script>
+
+<script src="https://kit.fontawesome.com/a6d3c1c916.js" crossorigin="anonymous"></script>
+
+<!-- Custom JS -->
+<script src="{{ url_for('static', filename='assets/js/app.js')}}"></script>
 
 
-{% block content %}
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa laudantium sequi expedita velit beatae? Doloribus repellat maiores sint laborum ratione accusamus blanditiis tempora saepe ipsam, voluptate possimus unde voluptas repellendus.</p>
-
-{% endblock content %}
-
-
+    {% block scripts %}{% endblock %}
+</body>
+</html>

@@ -1,6 +1,6 @@
 from flask import Blueprint, flash, url_for, render_template, redirect
 from .models import User
-from ..extensions import db, login_user
+from ..extensions import db, login_user, logout_user, current_user
 from .forms import UserRegistrationForm, UserLoginForm
 from werkzeug.security import generate_password_hash, check_password_hash
 auth_bp = Blueprint('auth_bp', __name__,url_prefix='/auth',template_folder='templates')
@@ -23,6 +23,9 @@ def register():
 
 @auth_bp.route('/login', methods = ['GET', 'POST'])
 def login():
+    if current_user.is_authenticated:
+        return redirect(url_for('dashboard_bp.dashboard'))
+
     form = UserLoginForm()
     if form.validate_on_submit():
         user = User.query.filter_by(email = form.email.data.lower()).first()
@@ -33,3 +36,7 @@ def login():
             flash('Email or Password are incorrect')
     return render_template('auth/login.html', form = form)
 
+@auth_bp.route('/logout')
+def logout():
+    logout_user()
+    return redirect(url_for('auth_bp.login'))

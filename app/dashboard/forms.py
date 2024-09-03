@@ -1,7 +1,15 @@
-from ..extensions import StringField, SubmitField, SelectField, DataRequired
+from ..extensions import StringField, SubmitField, SelectField, data_required, FlaskForm
 
 
-class AddLinkForm ():
-    social_name = SelectField('Choose social media', choices=[('Instagram'), ('Twitter'), ('Facebook'), ('Youtube'), ('WhatsApp')], validators=[DataRequired])
-    social_username = StringField('Username', validators=[DataRequired])
-    submit = SubmitField('Add')
+class AddLinkForm (FlaskForm):
+    social_name = SelectField('Choose social media', choices=[('Instagram'), ('X'), ('Facebook'), ('Youtube'), ('WhatsApp')], validators=[data_required])
+    social_username = StringField('Username', validators=[data_required])
+    submit = SubmitField('Add Link')
+class UpdateLinkForm (FlaskForm):
+    social_name = SelectField('Choose social media', choices=[('Instagram'), ('X'), ('Facebook'), ('Youtube'), ('WhatsApp')], validators=[data_required])
+    social_username = StringField('Username', validators=[data_required])
+    submit = SubmitField('Update Link')
+class DeleteLinkForm (FlaskForm):
+    social_name = SelectField('Choose social media', choices=[('Instagram'), ('X'), ('Facebook'), ('Youtube'), ('WhatsApp')], validators=[data_required])
+    social_username = StringField('Username', validators=[data_required])
+    submit = SubmitField('Delete Link')

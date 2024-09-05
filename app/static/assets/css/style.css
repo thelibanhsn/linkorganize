@@ -8237,3 +8237,51 @@ ul.comment-list li ul.children {
     background-color: #f8f9fa; /* Light grey background */
 }
 
+.container-max-w {
+	max-width: 500px;
+	margin: 1rem auto;
+	width: 90%;
+}
+.profile-icon-parent{
+	width: 100px;
+	height: 100px;
+	text-align: center;
+	background: #e3e3e3;
+	display: inline;
+}
+.social-icon,
+.profile-icon {
+	scale: 250%;
+}
+
+/* user puplic link */
+
+
+.card {
+  border-radius: 2em;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+.card-img-top {
+	width: 60%;
+	border-radius: 50%;
+	margin: 0 auto;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.card-title {
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+.social-icon:hover {
+	scale: 3.00;
+	opacity: .8;
+}
+.user-name {
+	margin: 0;
+	padding: 0;
+	font-weight: bold;
+}
+.user-title {
+	font-style:italic ;
+	margin: 0;
+}

@@ -3,6 +3,7 @@ from .auth.routes import auth_bp
 from .home.routes import home_bp
 from .dashboard.routes import dashboard_bp
 from .profile.routes import profile_bp
+from .social_links.routes import social_links_bp
 from .auth.models import User
 from .extensions import login_manager, db, migrate, bootstrap
 
@@ -26,6 +27,7 @@ def create_app():
     app.register_blueprint(home_bp)
     app.register_blueprint(dashboard_bp)
     app.register_blueprint(profile_bp)
+    app.register_blueprint(social_links_bp)
    
 
     return app

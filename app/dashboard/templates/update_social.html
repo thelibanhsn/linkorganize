@@ -11,7 +11,7 @@
   <body class="">
     {% include 'navbar.html' %}
 
-    <div class="container my-4 ">
+    <div class="container-max-w my-4 ">
         {% with messages = get_flashed_messages() %}
           {% if messages %}
             <div class="alert alert-danger" role="alert">
@@ -19,7 +19,11 @@
             </div>
           {% endif %}
         {% endwith %}
-        <h1 >Update Social Link</h1>
+        <div class="card p-4">
+
+        
+        <a href="{{url_for('dashboard_bp.dashboard')}}" class="mr-auto mb-2"><i class="fa fa-solid fa-arrow-left text-xl"></i></a>
+        <h4 >Update Social Link</h4>
 
 <form action="{{url_for('dashboard_bp.update_social_link', social_link_id = social_link_data.id)}}" class="form "  method="post" role="form">
     {{ form.hidden_tag() }}
@@ -29,7 +33,7 @@
   {{ wtf.form_field(form.social_username) }}
   {{ wtf.form_field(form.submit, class='btn btn-primary btn-lg btn-block') }}
 </form>
-        
+</div>
     </div>
 
    

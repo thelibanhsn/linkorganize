@@ -5,6 +5,8 @@ class User(db.Model,UserMixin):
     id = db.Column(db.Integer, primary_key = True)
     first_name = db.Column(db.String, nullable = False)
     last_name = db.Column(db.String, nullable = False)
+    user_title = db.Column(db.String(50))
+    user_bio = db.Column(db.String(255))
     username = db.Column(db.String, nullable = False, unique=True)
     email = db.Column(db.String, nullable = False, unique=True)
     password = db.Column(db.String, nullable = False)

@@ -71,8 +71,8 @@
         
                 <p>Your Link is ready</p>
                 <div class="input-group mb-3 ">
-                    <input type="text" class="form-control text-sm" value="https://example.com/{{current_user.username}}" aria-label="username" aria-describedby="button-addon2" readonly>
-                    <button class="btn btn-outline-success" type="button" id="button-addon2">Copy</button>
+                    <input type="text" class="form-control text-sm" id="copy-link-value" value="http://127.0.0.1:5000/{{current_user.username}}" aria-label="username" aria-describedby="button-addon2" readonly>
+                    <button class="btn btn-outline-success" type="button" id="button-addon2 copy-link-btn" onclick="copy_link()"><i class="fa-solid fa-copy"></i></button>
                 </div>
                 <p>Share with friends</p>
             </div>
@@ -95,8 +95,8 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <!-- jQuery -->
-<script src="{{ url_for('static', filename='assets/js/jquery-3.5.1.min.js')}}"></script>
+    <!-- custom -->
+<script src="{{ url_for('static', filename='assets/js/index.js')}}"></script>
 
 <!-- Bootstrap Core JS -->
 <script src="{{ url_for('static', filename='assets/js/popper.min.js')}}"></script>

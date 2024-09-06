@@ -8,5 +8,4 @@ social_links_bp = Blueprint('social_links_bp', __name__, template_folder='templa
 @social_links_bp.route('/<username>')
 def social_links(username):
     links = SocialLinkModel.query.filter_by(user_id = current_user.id).all()
-    print(links[0])
     return render_template('/index.html', links = links)

@@ -3,13 +3,14 @@
 {% include 'head.html' %}
 <body>
 
-    <div class=" container-max-w mb-4">        
+    <div class=" container-max-w ">        
         <div class="card text-center" >
             <img src="https://codingyaar.com/wp-content/uploads/bootstrap-profile-card-image.jpg" class="card-img-top" alt="...">
             <div class="card-body">
               <p class="card-title user-name">{{current_user.first_name}} {{current_user.last_name}}</p>
               <p class="text-muted user-title">{{current_user.user_title}}</p>
               <p class="card-text">{{current_user.user_bio}}</p>
+              <p class="btn btn-success">{{current_user.email}}</p>
               <hr class="border border-primary border-3 opacity-75">
               <div class="p-4 d-flex justify-content-between">
                 {% for link in links %}
@@ -32,7 +33,7 @@
                 </div>
                 
                 
-                <footer class="footer navbar-brand text-center text-dark mt-4"> &copy; Oraganize Link</footer>
+                <p class="footer navbar-brand text-center text-dark mt-4"> &copy; Oraganize Link</p>
             </div>
           </div>
           </div>

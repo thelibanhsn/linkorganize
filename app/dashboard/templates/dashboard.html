@@ -67,7 +67,7 @@
                 </div>
         </div>
         <div class="col col-md-4 col-sm-12">
-            <div class="card bg-light p-4">
+            <div class="card bg-light p-4 mb-4">
         
                 <p>Your Link is ready</p>
                 <div class="input-group mb-3 ">
@@ -77,8 +77,15 @@
                 <p>Share with friends</p>
             </div>
         <div class="card bg-gray p-4">
-            <div class="card-header">QR Code</div>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores veritatis, quis dolorem est consequatur dignissimos tempora natus explicabo molestiae nostrum quod magnam doloremque id vel mollitia, vero voluptatem eveniet. Repudiandae!</p>
+            {% if qr_code %}
+                <h3>Your QR Code</h3>
+                <img src="data:image/png;base64,{{ qr_code }}" alt="QR Code">
+                <br>
+                <a href="{{ url_for('dashboard_bp.download_qr') }}" class="btn btn-outline-success" download>Download QR Code</a>
+            {% else %}
+                <p>You have not generated a QR code yet.</p>
+                <a href="{{ url_for('dashboard_bp.generate_qr', username=current_user.username) }}">Generate QR Code</a>
+            {% endif %}
         </div>
     </div>
     </div>

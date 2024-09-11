@@ -18,7 +18,7 @@ def register():
             data = User(first_name = form.first_name.data, last_name = form.last_name.data, username = form.username.data.lower(), email = form.email.data.lower(),password = hashed_password)
             db.session.add(data)
             db.session.commit()
-            return redirect(url_for('auth_bp.login'))
+            return redirect(url_for('dashboard_bp.dashboard'))
     return render_template('/auth/register.html', form=form)
 
 @auth_bp.route('/login', methods = ['GET', 'POST'])

@@ -20,16 +20,17 @@
         <div class="card p-4 ">
           <a href="{{url_for('dashboard_bp.dashboard')}}" class="mr-auto"><i class="fa fa-solid fa-arrow-left text-xl"></i></a>
           <h4 class="card-header">Update Profile</h4>
-          <form action="{{url_for('profile_bp.edit_profile', user_id = current_user.id)}}" class="form card-body"  method="post" role="form">
+          <form action="{{url_for('profile_bp.edit_profile', user_id = current_user.id)}}" class="form card-body"  method="post" role="form"  enctype="multipart/form-data">
               {{ form.hidden_tag() }}
             {{ wtf.form_errors(form, hiddens="only") }}
           
+            {{ wtf.form_field(form.profile_pic, value=user_info.profile_pic, class='form-control') }}
             {{ wtf.form_field(form.first_name, value=user_info.first_name) }}
             {{ wtf.form_field(form.last_name, value=user_info.last_name) }}
             {{ wtf.form_field(form.user_title, value=user_info.user_title) }}
             {{ wtf.form_field(form.user_bio,  value=user_info.user_bio) }}
             {{ wtf.form_field(form.username, value=user_info.username) }}
-            {{ wtf.form_field(form.email, value=user_info.email) }}
+            {{ wtf.form_field(form.email, value=user_info.email, readonly='true') }}
             {{ wtf.form_field(form.submit, class='btn btn-primary btn-lg') }}
             <a href="/profile" class='btn btn-primary btn-lg'>Cancel</a>
           </form>

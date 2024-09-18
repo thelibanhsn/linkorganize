@@ -3,9 +3,9 @@ from ..extensions import login_required, current_user,db,login_manager
 from .forms import AddLinkForm, UpdateLinkForm, DeleteLinkForm
 from .models import SocialLinkModel
 import qrcode
+import io
 from io import BytesIO
 import base64
-import io
 from ..auth.models import User
 
 dashboard_bp = Blueprint('dashboard_bp', __name__, template_folder='templates' , url_prefix='/dashboard')

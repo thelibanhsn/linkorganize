@@ -9,6 +9,7 @@ class User(db.Model,UserMixin):
     user_title = db.Column(db.String(50), nullable=True)
     user_bio = db.Column(db.String(255), nullable=True)
     profile_pic = db.Column(db.String(255), nullable=True)
+    otp = db.Column(db.String(255), nullable=True)
     qr_code = db.Column(db.LargeBinary, nullable=True)
     username = db.Column(db.String, nullable = False, unique=True)
     email = db.Column(db.String, nullable = False, unique=True)

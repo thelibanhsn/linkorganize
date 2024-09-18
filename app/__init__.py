@@ -5,7 +5,7 @@ from .dashboard.routes import dashboard_bp
 from .profile.routes import profile_bp
 from .social_links.routes import social_links_bp
 from .auth.models import User
-from .extensions import login_manager, db, migrate, bootstrap
+from .extensions import login_manager, db, migrate, bootstrap, mail
 
 def create_app():
     app = Flask(__name__)
@@ -13,6 +13,8 @@ def create_app():
     # Initialize extensions
     db.init_app(app)
     login_manager.init_app(app)
+
+    mail.init_app(app)
 
     @login_manager.user_loader
     def load_user(user_id):

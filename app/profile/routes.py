@@ -26,10 +26,7 @@ def edit_profile(user_id):
 
  if form.validate_on_submit():
     file = form.profile_pic.data
-    if isinstance(file, str):
-        print("Received a string instead of a file")
-    else:
-        # filename = secure_filename(file.filename)
+    if file:
         unique_filename = str(current_user.id )+ "_" + secure_filename(file.filename)
 
         upload_folder = os.path.join(current_app.root_path, 'static', 'assets', 'img', 'profiles')

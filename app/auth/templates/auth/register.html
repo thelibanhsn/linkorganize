@@ -9,15 +9,18 @@
   <body class="">
     {% include 'navbar.html' %}
 
-    <div class="container-max-w ">
-        {% with messages = get_flashed_messages() %}
-          {% if messages %}
-            <div class="alert alert-danger" role="alert">
-              {{ messages[0] }}
-            </div>
-          {% endif %}
-        {% endwith %}
-        <div class="card p-4 ">
+    <div class="container-max-w">
+        
+        <div class="card p-4 m-auto ">
+          {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+              {% for category, message in messages %}
+              <div class="alert alert-{{ category }}" role="alert">
+                  {{ message }}
+              </div>
+              {% endfor %}
+            {% endif %}
+          {% endwith %}
           <h4 class="card-header">Create your account for free</h4>
           <form action="{{url_for('auth_bp.register')}}" class="form card-body"  method="post" role="form">
               {{ form.hidden_tag() }}

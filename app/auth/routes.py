@@ -16,7 +16,7 @@ def register():
     if form.validate_on_submit():
         user = User.query.filter_by(email = form.email.data, username = form.username.data).first()
         if user:
-            flash('User exists')
+            flash('User exists', 'warning')
         else:
             hashed_password = generate_password_hash(form.password.data)
             data = User(first_name = form.first_name.data, last_name = form.last_name.data, username = form.username.data.lower(), email = form.email.data.lower(),password = hashed_password)
@@ -38,7 +38,7 @@ def login():
             login_user(user)
             return redirect(url_for('dashboard_bp.dashboard'))
         else:
-            flash('Email or Password are incorrect')
+            flash('Email or Password are incorrect', 'danger')
     return render_template('auth/login.html', form = form)
 
 # logout view

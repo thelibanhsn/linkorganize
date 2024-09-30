@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 {% include 'head.html' %}
-<body>
+<body class="vh-100">
 
     <div class=" container-max-w ">        
-        <div class="card text-center h-full" >
+        <div class="card text-center social-links-card" >
             <img src="{{url_for('static', filename='assets/img/profiles/'+(current_user.profile_pic or 'default-profile.jpeg'))}}" class="card-img-top profile-pic" alt="...">
-            <div class="card-body">
+            <div class="card-body d-flex flex-column justify-content-between">
               <p class="card-title user-name">{{user.first_name}} {{user.last_name}}</p>
               <p class="text-muted user-title">{{user.user_title}}</p>
               <p class="card-text">{{user.user_bio}}</p>
               <p class="btn btn-success">{{user.email}}</p>
-              <hr class="border border-primary border-3 opacity-75">
+              <hr class="border border-primary border-3 opacity-75 w-full">
               <div class="p-4 d-flex justify-content-between">
                 {% for link in links %}
                     {% if link.social_name == 'instagram' %}

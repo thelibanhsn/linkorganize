@@ -46,7 +46,7 @@ def update_social_link(social_link_id):
 
     if not social_link_data:
         # Handle case where social link with given ID does not exist
-        flash('Social link not found.', 'error')
+        flash('Social link not found.', 'danger')
         return redirect(url_for('dashboard_bp.dashboard'))
     
     if form.validate_on_submit():
@@ -67,7 +67,7 @@ def delete_social_link(social_link_id):
 
     if not social_link_data:
         # Handle case where social link with given ID does not exist
-        flash('Social link not found.', 'error')
+        flash('Social link not found.', 'danger')
         return redirect(url_for('dashboard_bp.dashboard'))
     
     if form.validate_on_submit():

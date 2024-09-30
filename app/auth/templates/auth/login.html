@@ -8,18 +8,20 @@
   {% include 'head.html' %}
   <!-- End Head -->
 
-  <body class="">
+  <body class="vh-100">
     {% include 'navbar.html' %}
 
-    <div class="container-max-w my-4 ">
-        {% with messages = get_flashed_messages() %}
-          {% if messages %}
-            <div class="alert alert-danger" role="alert">
-              {{ messages[0] }}
-            </div>
-          {% endif %}
-        {% endwith %}
-        <div class="card p-4 ">
+    <div class="container-max-w ">
+      <div class="card p-4 m-auto">
+          {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+              {% for category, message in messages %}
+              <div class="alert alert-{{ category }}" role="alert">
+                  {{ message }}
+              </div>
+              {% endfor %}
+            {% endif %}
+          {% endwith %}
 
 
           <h4 class="card-header text-primary">Sign in</h4>

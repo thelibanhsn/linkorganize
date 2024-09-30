@@ -6,24 +6,56 @@
 <html lang="en">
   {% include 'head.html' %}
 
-  <body class="home img-fluid object-fit-cover">
-    {% include 'navbar.html' %}
-    <div class="container my-4 ">
-        {% with messages = get_flashed_messages() %}
-          {% if messages %}
-            <div class="alert alert-danger" role="alert">
-              {{ messages[0] }}
-            </div>
-          {% endif %}
-        {% endwith %}
-        <div>
-            <h1>Make all your social links in <strong>One Link</strong></h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate officia dolore mollitia quis adipisci cum facere, culpa quae harum accusantium, ipsa ut placeat dolorem expedita voluptas eveniet laboriosam vero error!</p>
-            <a class="btn btn-success" href="{{url_for('auth_bp.login')}}">Login</a>
-            <a class="btn btn-primary" href="{{url_for('auth_bp.register')}}">Register</a>
-        </div>
+<body >
+  <header class="home ">
 
-   
+    {% include 'navbar.html' %}
+    <div class="container row hero px-0">
+        <div class="hero-text col col-12 col-md-6 py-4">
+            <h1 class="text-title">Make all your social links in <strong class="text-warning">One Link</strong></h1>
+            <p>Create a single, easy-to-manage hub for all your links, making it effortless for your audience to connect with you. 
+              Whether you’re a content creator, entrepreneur, or simply want to share your favorite platforms, Link Organize puts everything you need in one convenient place. 
+              Elevate your digital experience and stay organized—try Link Organize today!</p>
+            <a class="btn btn-lg btn-warning w-50" href="{{url_for('auth_bp.register')}}">Register</a>
+        </div>
+        <div class="hero-img col col-12 col-md-6 ">
+          <img src="../../static/assets/img/hero-img.png" alt="profile card" class="hero-img">
+        </div>
+      </div>
+  </header>
+  <section class=" vh-50 py-4 text-center bg-light">
+    <h3 class="text-center p-2">Get Started in Three Easy Steps</h3>
+    <div class="container row justify-content-between text-center align-items-center">
+
+      <card class="card  col-md-3 col-12 mb-2" style="height: 15rem;">
+          <div class="card-body">
+            <h4 class="card-title border-bottom py-2 text-primary">Step 1</h4>
+            <p class="card-text">Sign up for your free account today and unlock exclusive features!</p>
+            <div><i class="home-icon fa-solid fa-user-plus"></i></div>
+          </div>
+      </card>
+      <card class="card  col-md-3 col-12 mb-2" style="height:15rem;">
+          <div class="card-body">
+            <h4 class="card-title border-bottom py-2 text-primary">Step 2</h4>
+            <p class="card-text">Personalize your profile by adding details and social links to connect with others.</p>
+            <div><i class="home-icon fa-solid fa-gear"></i></div>
+          </div>
+      </card>
+      <card class="card  col-md-3 col-12" style="height:15rem;">
+          <div class="card-body">
+            <h4 class="card-title border-bottom py-2 text-primary">Step 3</h4>
+            <p class="card-text">Share your unique link or QR code with friends to spread the word!</p>
+            <div class=""><i class=" home-icon fa-solid fa-share-from-square"></i></div>
+          </div>
+      </card>
+    </div>
+  </section>
+
+  <footer class="footer mt-auto py-3 bg-light text-center">
+    <div class="container">
+        <span class="text-muted">Link Oraganize © 2024</span>
+    </div>
+</footer>
 
     <!-- Bootstrap JS (optional) -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

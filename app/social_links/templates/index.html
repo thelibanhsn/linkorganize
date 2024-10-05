@@ -24,17 +24,25 @@
                     <a href="https://www.x.com/thelibanhsn" target="_blank"><i class=" fa-brands fa-x-twitter social-icon text-dark"></i></a>
                     {% endif %}
                     {% if link.social_name == 'youtube' %}
-                    <a href="https://www.youtube.com/thelibanhsn" target="_blank"><i class=" fa-brands fa-youtube text-danger social-icon"></i></a>
+                    <a href="https://www.youtube.com/@thelibanhsn" target="_blank"><i class=" fa-brands fa-youtube text-danger social-icon"></i></a>
                     {% endif %}
                     {% if link.social_name == 'tiktok' %}
-                        <a href="https://www.tiktok.com/thelibanhsn" target="_blank"><i class=" fa-brands fa-solid fa-tiktok social-icon"></i></a>
+                        <a href="https://www.tiktok.com/@thelibanhsn" target="_blank"><i class=" fa-brands fa-solid fa-tiktok social-icon text-dark"></i></a>
+                    {% endif %}
+                    {% if link.social_name == 'snapchat' %}
+                        <a href="https://www.tiktok.com/@thelibanhsn" target="_blank"><i class=" fa-brands fa-solid fa-snapchat social-icon text-warning"></i></a>
                     {% endif %}
                  {%endfor%}
                 </div>
                 
-                
-                <p class="footer navbar-brand text-center text-dark mt-4"> &copy; Oraganize Link</p>
             </div>
+            {% if not current_user.is_authenticated %}
+            <div class="mt-4">
+                <p>Create your profile with simple steps</p>
+                <a href="{{url_for('auth_bp.register')}}" class="btn btn-primary w-25">Register</a>
+            </div>
+            {% endif %}
+            <p class="footer navbar-brand text-center text-dark mt-4"> &copy; Oraganize Link</p>
           </div>
           </div>
           

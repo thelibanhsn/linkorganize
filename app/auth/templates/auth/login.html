@@ -8,10 +8,10 @@
   {% include 'head.html' %}
   <!-- End Head -->
 
-  <body class="vh-100">
+  <body class="">
     {% include 'navbar.html' %}
 
-    <div class="container-max-w ">
+    <div class="container-max-w w-100">
       <div class="card p-4 m-auto">
           {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages %}

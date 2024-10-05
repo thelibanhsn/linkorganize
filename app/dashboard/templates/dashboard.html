@@ -53,6 +53,12 @@
                                     {% if link.social_name == 'tiktok' %}
                                         <i class="fa-brands fa-solid fa-tiktok"></i>
                                     {% endif %}
+                                    {% if link.social_name == 'snapchat' %}
+                                        <i class="fa-brands fa-solid fa-snapchat text-warning"></i>
+                                    {% endif %}
+                                    {% if link.social_name == 'whatsapp' %}
+                                        <i class="fa-brands fa-whatsapp text-success"></i>
+                                    {% endif %}
                                     </span>
                                     <input type="text" class="form-control w-auto" value="@{{link.social_username}}" readonly aria-label="Username" aria-describedby="basic-addon1">
                                   </div>

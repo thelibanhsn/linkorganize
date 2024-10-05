@@ -30,10 +30,10 @@
             {{ wtf.form_field(form.profile_pic, value=user_info.profile_pic, class='form-control') }}
             {{ wtf.form_field(form.first_name, value=user_info.first_name) }}
             {{ wtf.form_field(form.last_name, value=user_info.last_name) }}
-            {{ wtf.form_field(form.user_title, value=user_info.user_title) }}
-            {{ wtf.form_field(form.user_bio,  value=user_info.user_bio) }}
             {{ wtf.form_field(form.username, value=user_info.username) }}
             {{ wtf.form_field(form.email, value=user_info.email, readonly='true') }}
+            {{ wtf.form_field(form.user_title, value=user_info.user_title) }}
+            {{ wtf.form_field(form.user_bio,  value=user_info.user_bio) }}
             {{ wtf.form_field(form.submit, class='btn btn-primary btn-lg') }}
             <a href="/profile" class='btn btn-primary btn-lg'>Cancel</a>
           </form>

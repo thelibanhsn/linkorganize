@@ -11,6 +11,5 @@ def social_links(username):
     if not user:
         return render_template('/not_found.html')
     links = SocialLinkModel.query.filter_by(user_id = user.id).all()
-    print('user', user)
     return render_template('/index.html', links = links, user = user)
     

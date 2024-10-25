@@ -41,8 +41,7 @@ def edit_profile(user_id):
 
         # file.save(os.path.join(current_app.config['UPLOAD_FOLDER'], filename))
 
-    user_info.first_name = form.first_name.data
-    user_info.last_name = form.last_name.data
+    user_info.name = form.name.data
     user_info.user_title = form.user_title.data
     user_info.user_bio = form.user_bio.data
     user_info.email = form.email.data

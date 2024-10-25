@@ -19,7 +19,7 @@ def register():
             flash('User exists', 'warning')
         else:
             hashed_password = generate_password_hash(form.password.data)
-            data = User(first_name = form.first_name.data, last_name = form.last_name.data, username = form.username.data.lower(), email = form.email.data.lower(),password = hashed_password)
+            data = User(name = form.name.data, username = form.username.data.lower(), email = form.email.data.lower(),password = hashed_password)
             db.session.add(data)
             db.session.commit()
             login_user(data)
